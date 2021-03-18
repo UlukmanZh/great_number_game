@@ -1,0 +1,67 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+h1{
+    text-align: center;
+    margin-top: 10rem;
+}
+h3{
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+#container,
+#reset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+input{
+    margin-top: 1.5rem;
+    width: 10rem;
+    height: 3rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+button{
+    margin-top: 1.5rem;
+    height: 2rem;
+    width: 5rem;
+}
+
+#high{
+    border: solid 1px;
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    background-color: rgb(58, 137, 240);
+}
+
+#low{
+    border: solid 1px;
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    background-color:orange;
+}
+#win{
+    border: solid 1px;
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    background-color: green;
+    
+}
+#result{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center
+}
+p{
+    margin-top: 2rem;
+}
+

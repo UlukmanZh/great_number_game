@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Number Game</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <h1>Welcome to Great Number Game!</h1>
+    <h3>I am thinking a number between 1 and 100</h3>
+    <h3>Take a guess!</h3>
+    <div id="result">
+        {% if request.session.too_high %}
+        <div id = "high">
+            <p>TOO HIGH</p>
+        </div>
+        {% endif %}
+        {% if request.session.too_low %}
+        <div id = "low">
+            <p>TOO LOW</p>
+        </div>
+        {% endif %}
+        {% if request.session.just_right %}
+        <div id = "win">
+            <p>{{request.session.computer_number}} WAS THE NUMBER</p>
+        </div>
+        {% endif %}
+        {% if request.session.error %}
+        <div id = "error">
+            <p> Please enter number between 1 and 100</p>
+        </div>
+        {% endif %}
+    </div>  
+    {% if request.session.just_right %}
+        <form action="/reset" method="post">
+        {% csrf_token %}
+            <div id="container">
+                <!-- <input type='number' name='user_number'> -->
+                <button type="submit">Reset</button>
+            </div>
+        </form>
+        {% else %}
+        <form action="/result" method="post">
+            {% csrf_token %}
+            <div id="container">
+                <input type='number' name='user_number'>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <form action="/reset" method="post">
+            {% csrf_token %}
+            <div id="reset">
+                <button type="submit">Reset</button>
+            </div>
+        </form>
+    {% endif %}
+</body>
+</html>
